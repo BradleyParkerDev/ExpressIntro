@@ -53,7 +53,7 @@ app.post("/new-movie",(req,res)=>{
 		})
 		return
 	}
-	if (req.body.starRating === undefined || typeof(req.body.starRating) !== "number" /*&& req.body.starRating <= 0 && req.body.starRating > 5*/){
+	if (req.body.starRating === undefined || typeof(req.body.starRating) !== "number" || req.body.starRating <= 0 || req.body.starRating > 5){
 		res.json({
 			success: false,
 			message: "Movie rating is required and must be a number"
